@@ -41,6 +41,7 @@ function main(): void {
   const buildEnvironment = clientBuildProcessEnvironment(process.env, clientEnvironment)
 
   rmSync(resolve(root, CLIENT_BUILD_RECORD_PATH), { force: true })
+  runScript('clean', buildEnvironment)
   runScript('build:native-system', buildEnvironment)
   runScript('build:lib', buildEnvironment)
   runScript('build:web', buildEnvironment)
